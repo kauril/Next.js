@@ -75,7 +75,7 @@ export default class Page extends React.Component {
             </div>
             <style jsx global>{`
           body {
-            background-color: #95f7ae;
+            background-color: git ;
           }
           
         `}</style> 
