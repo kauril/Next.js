@@ -1,0 +1,37 @@
+{
+  "name": "nextjs-website",
+  "version": "0.0.2",
+  "private": true,
+  "description": "Website built with Next.js using Prismic headless CMS",
+  "author": "",
+  "devDependencies": {
+    "express": "^4.17.0",
+    "nodemon": "^1.19.0",
+    "now": "^15.3.0"
+  },
+  "dependencies": {
+    "next": "^8.1.0",
+    "prismic-javascript": "^2.0.3",
+    "prismic-reactjs": "^0.3.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-transition-group": "^1.2.1"
+  },
+  "scripts": {
+    "dev": "now dev",
+    "node-dev": "nodemon server.js",
+    "now-build": "next build",
+    "deploy": "now",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulg/nextjs-website.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/raulg/nextjs-website/issues"
+  },
+  "homepage": "https://github.com/raulg/nextjs-website#readme",
+  "main": "next.config.js"
+}
