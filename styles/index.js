@@ -33,7 +33,7 @@ export const header = css.global`
 }
 .site-header nav li {
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 38px;
 }
 @media (max-width: 1060px) {
   .site-header {
@@ -160,7 +160,7 @@ body {
   font-weight: 400;
   letter-spacing : 0.4;
   line-height: 28px;
-  background-color: white;
+  background-color: #5ae4a7;
 }
 a {
   color: #72767B;

@@ -5,13 +5,18 @@ import { Header, SliceZone } from 'components'
 import DefaultLayout from 'layouts'
 import Error from './_error'
 import Head from 'next/head'
-import defaultSEO from '../defaultSEO';
+import defaultSEO from '../../defaultSEO';
 
 export default class Page extends React.Component {
   // Fetch relevant data from Prismic before rendering
   static async getInitialProps(context) {
     const { uid } = context.query
-    const lang = 'fi'
+    console.log('dsadsa')
+    console.log(context.query)
+    //const lang = context.query.lang ? context.query.lang : 'fi'
+    const lang = 'en-fi'
+    console.log(lang)
+    console.log('lang ylla')
     const req = context.req
     const page = await this.getPage(uid, req, lang)
     // Extra call to render the edit button, in case we've been routed client-side
@@ -26,14 +31,13 @@ export default class Page extends React.Component {
 
   static async getPage(uid, req, lang) {
     try {
-
       // Initializes the API, including the preview information and access token if there's any
       const API = await Prismic.getApi(apiEndpoint, { req, accessToken })
       // Queries both the specific page and navigation menu documents
       //const document = await API.getByUID('page', uid)
-      const document = await API.getByUID('page', uid)
+      const document = await API.getByUID('page', uid, { lang: lang })
 
-      const menu = await API.getSingle('menu')
+      const menu = await API.getSingle('menu', { lang: lang })
 
       return { document, menu }
     } catch (error) {
@@ -43,7 +47,7 @@ export default class Page extends React.Component {
   }
 
   render() {
-    console.log('pages')
+    console.log('en pgaes')
     console.log(this.props.lang)
     // If the query returns null, then we don't attempt to render the page
     if (!this.props.doc) {
@@ -84,7 +88,7 @@ export default class Page extends React.Component {
           <style jsx global>{`
           body {
             background-color: white;
-          }
+          }          
         `}</style>
         </DefaultLayout>
       )

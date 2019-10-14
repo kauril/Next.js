@@ -3,14 +3,16 @@ import Prismic from 'prismic-javascript'
 import { apiEndpoint, accessToken } from 'prismic-configuration'
 import { Header, HomeBanner, SliceZone } from 'components'
 import Head from 'next/head'
-import defaultSEO from '../defaultSEO';
+import defaultSEO from '../../defaultSEO';
 import DefaultLayout from 'layouts'
 
 export default class extends React.Component {
   // Fetch relevant data from Prismic before rendering
   static async getInitialProps(context) {
     const req = context.req
-    const lang = 'fi'
+    console.log('en indexixsss queryyy')
+    console.log(context.query)
+    const lang = 'en-fi'
     const home = await this.getHomePage(req, lang)
     // Extra call to render the edit button, in case we've been routed client-side
     if (process.browser) window.prismic.setupEditButton()
@@ -26,9 +28,9 @@ export default class extends React.Component {
       // Initializes the API, including the preview information and access token if there's any
       const API = await Prismic.getApi(apiEndpoint, { req, accessToken })
       // Queries both the homepage and navigation menu documents
-      const document = await API.getSingle('homepage')
+      const document = await API.getSingle('homepage', { lang: lang })
 
-      const menu = await API.getSingle('menu')
+      const menu = await API.getSingle('menu', { lang: lang })
       return { document, menu }
     } catch (error) {
       console.error(error)
@@ -37,7 +39,7 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log('indexixsss')
+    console.log('en indexixsss')
     console.log(this.props.lang)
     let title = this.props.doc.data.meta_title ?
       this.props.doc.data.meta_title :

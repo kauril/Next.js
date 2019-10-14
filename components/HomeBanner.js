@@ -42,14 +42,15 @@ const HomeBanner = ({ banner }) => {
               </a>
             </NextLink>
           ) : (
-            ''
-          )}
+              ''
+            )}
         </div>
       </section>
       <style jsx>{`
+
         .homepage-banner {
           max-width: 980px;
-          margin: -70px auto 35px;
+          margin: -70px auto 0px;
           padding: 4em 4em;
           background-position: center center;
           background-size: cover;
@@ -57,9 +58,11 @@ const HomeBanner = ({ banner }) => {
           line-height: 1.75;
           text-align: center;
         }
+
         .banner-content {
           text-align: center;
         }
+
         .banner-title,
         .banner-description {
           width: 90%;
@@ -67,12 +70,14 @@ const HomeBanner = ({ banner }) => {
           margin-left: auto;
           margin-right: auto;
         }
+
         .banner-title {
           color: #ffffff;
           font-size: 70px;
           font-weight: 900;
           line-height: 70px;
         }
+
         .banner-button {
           background: #ffffff;
           border-radius: 7px;
@@ -81,14 +86,18 @@ const HomeBanner = ({ banner }) => {
           font-weight: 700;
           padding: 10px 40px;
         }
+
         .banner-button:hover {
           background: #c8c9cb;
         }
+
         @media (max-width: 767px) {
+
           .homepage-banner {
             margin: 0 0 0;
-            padding: 6em 0 2em;
+            padding: 5em 0 2em;
           }
+
           .banner-title {
             font-size: 50px;
             line-height: 50px;

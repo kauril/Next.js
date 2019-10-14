@@ -18,6 +18,7 @@ const propsWithUniqueKey = function (props, key) {
 }
 
 export const htmlSerializer = function (type, element, content, children, key) {
+
   var props = {}
   switch (type) {
     case Elements.hyperlink: // Link

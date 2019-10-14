@@ -1,25 +1,9 @@
 {
   "Main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "placeholder" : "meaningful-unique-identifier...",
-        "label" : "Unique ID"
-      }
-    },
     "page_content" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
       "config" : {
-        "labels" : {
-          "text_section" : [ {
-            "name" : "1col",
-            "display" : "1 Column"
-          }, {
-            "name" : "2col",
-            "display" : "2 Columns"
-          } ]
-        },
         "choices" : {
           "text_section" : {
             "type" : "Slice",
@@ -31,6 +15,25 @@
                 "type" : "StructuredText",
                 "config" : {
                   "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Rich Text",
+                  "placeholder" : "Text..."
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "text_section_english" : {
+            "type" : "Slice",
+            "fieldset" : "Text Section English",
+            "description" : "English Simple text section with either one or two columns",
+            "icon" : "text_fields",
+            "non-repeat" : {
+              "rich_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
                   "label" : "Rich Text",
                   "placeholder" : "Text..."
                 }
@@ -64,8 +67,7 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 980,
-                    "height" : 300
+                    "width" : 980
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
@@ -117,8 +119,7 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 727,
-                    "height" : 402
+                    "width" : 471
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
@@ -177,6 +178,53 @@
             },
             "repeat" : { }
           }
+        }
+      }
+    }
+  },
+  "SEO" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title",
+        "placeholder" : "Meta title..."
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description",
+        "placeholder" : "Meta Description..."
+      }
+    }
+  },
+  "Socialmedia Card" : {
+    "socialmedia_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title"
+      }
+    },
+    "socialmedia_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Description"
+      }
+    },
+    "socialmedia_image" : {
+      "type" : "Image",
+      "config" : {
+        "placeholder" : "Image",
+        "constraint" : {
+          "width" : 1200,
+          "height" : 630
         }
       }
     }

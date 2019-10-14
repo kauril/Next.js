@@ -13,7 +13,13 @@ module.exports = {
   // Modify as your project grows to handle any new routes you've made
   linkResolver: function (doc) {
     if (doc.type === 'page') {
+      if(doc.lang === 'en-fi'){
+        return `/en/${doc.uid}`
+      }
       return `/${doc.uid}`
+    }
+    if(doc.lang === 'en-fi'){
+      return '/en/'
     }
     return '/'
   },
@@ -21,7 +27,13 @@ module.exports = {
   // Additional helper function for Next/Link component
   hrefResolver: function (doc) {
     if (doc.type === 'page') {
+      if(doc.lang === 'en-fi'){
+        return `/en/page?uid=${doc.uid}`
+      }
       return `/page?uid=${doc.uid}`
+    }
+    if(doc.lang === 'en-fi'){
+      return '/en/'
     }
     return '/'
   }

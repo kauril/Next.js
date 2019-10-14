@@ -1,50 +1,44 @@
 import Meta from 'components/Meta'
 import Footer from 'components/Footer'
 
-const DefaultLayout = ({ children }) => (
-  <div>
-    <Meta />
-
-<div id="myModal" className="modal">
-  <span className="close">&times;</span>
-  <img className="modal-content" id="img01"/>
-  <div id="caption"></div>
-</div>
-    <main>{children}</main>
-    <Footer />
-    <style jsx>{`
+const DefaultLayout = ({ children }) => {
+    return (
+        <div>
+            <Meta />
+            <div id="imgModal" className="modal">
+                <div className="close">&times;</div>
+                <img id="modalImage" />
+                <div id="caption"></div>
+                {/* <button id="zoomin" type="button" > Zoom In</button>
+                <button id="zoomout" type="button" > Zoom Out</button> */}
+            </div>
+            <main>{children}</main>
+            <Footer />
+            <style jsx>{`
           /* Style the Image Used to Trigger the Modal */
-          #myImg {
-              border-radius: 5px;
-              cursor: pointer;
+          #modalImage {
               transition: 0.3s;
+              clear: right;
+              margin: auto;
+              display: block;
+              max-height: 80%;
+              max-width: 90%
           }
-          
-          #myImg:hover {opacity: 0.7;}
           
           /* The Modal (background) */
           .modal {
               display: none; /* Hidden by default */
               position: fixed; /* Stay in place */
               z-index: 1; /* Sit on top */
-              padding-top: 3%; /* Location of the box */
               left: 0;
               top: 0;
               width: 100%; /* Full width */
               height: 100%; /* Full height */
-              cursor: pointer;
               overflow: auto; /* Enable scroll if needed */
               background-color: rgb(0,0,0); /* Fallback color */
               background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
           }
-          
-          /* Modal Content (Image) */
-          .modal-content {
-              margin: auto;
-              display: block;
-              max-height: 90%;
-              max-width: 90%
-          }
+        
           
           /* Caption of Modal Image (Image Text) - Same Width as the Image */
           #caption {
@@ -55,7 +49,6 @@ const DefaultLayout = ({ children }) => (
               text-align: center;
               color: #ccc;
               padding: 10px 0;
-              height: 150px;
           }
           
           /* Add Animation - Zoom in the Modal */
@@ -78,9 +71,8 @@ const DefaultLayout = ({ children }) => (
           
           /* The Close Button */
           .close {
-              position: absolute;
-              top: 15px;
-              right: 35px;
+            float: right;
+            padding: 3% 3% 1% 0;
               color: #f1f1f1;
               font-size: 40px;
               font-weight: bold;
@@ -94,20 +86,12 @@ const DefaultLayout = ({ children }) => (
               cursor: pointer;
           }
           
-
-          @media only screen and (max-width: 767px) {
-          
-            .modal-content {
-                width: 90%;
-            }
-            .modal {
-                padding-top: 15%; /* Location of the box */
-              }
-          }
           }
           
         `}</style>
-  </div>
-)
+        </div>
+    )
+
+}
 
 export default DefaultLayout

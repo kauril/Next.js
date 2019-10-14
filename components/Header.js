@@ -3,98 +3,109 @@ import { default as NextLink } from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import { linkResolver, hrefResolver } from 'prismic-configuration'
 import { header } from 'styles'
+import Link from 'next/link'
+import Router from 'next/router'
 
-const MenuLinks = ({ menu }) => (
-  menu.data.menu_links.map((menuLink) => {
-    if (menuLink.link.id) {
-      return (
-        <li key={menuLink.link.id} onClick={() => { 
-          const menu = document.getElementById("menu")
-          const menuButton = document.getElementById("toggle")
-          menuButton.classList.toggle("on");
-          menu.style.display = 'none'
-          menuOpen = false 
-        }}>
-          <NextLink
-            as={linkResolver(menuLink.link)}
-            href={hrefResolver(menuLink.link)}
-            passHref
-            prefetch
-          >
-            <a>{RichText.asText(menuLink.label)}</a>
-          </NextLink>
-        </li>
-      )
-    } else {
-      return (
-        <li key={menuLink.label[0].text}> 
+const MenuLinks = ({ menu }) => {
+  return (
+    menu.data.menu_links.map((menuLink) => {
+      if (menuLink.link.id) {
+        return (
+          <li key={menuLink.link.id} onClick={() => linkClick()}>
+            <NextLink
+              as={linkResolver(menuLink.link)}
+              href={hrefResolver(menuLink.link)}
+              passHref
+              prefetch
+            >
+              <a>{RichText.asText(menuLink.label)}</a>
+            </NextLink>
+          </li>
+        )
+      } else {
+        return (
+          <li key={menuLink.label[0].text}>
             <a href={menuLink.link.url}>{RichText.asText(menuLink.label)}</a>
-            {/* <a href={menuLink.link.url}><img src="../static/glyph-logo_May2016.png" width={10} height={10}/></a> */}
-        </li>
-      )
-    }
-  })
-) 
+          </li>
+        )
+      }
+    })
+  )
+}
 
 let menuOpen = false;
 
-const toggleClick = () => {
+const toggleButtonClick = () => {
+  const menu = document.getElementById("menu")
   const menuButton = document.getElementById("toggle")
   menuButton.classList.toggle("on");
-  const menu = document.getElementById("menu")
   if (menuOpen) {
     menu.style.display = 'none'
-    menuOpen = false 
+    menuOpen = false
   } else {
     menu.style.display = 'block'
     menuOpen = true
   }
 }
 
-const Header = (menu) => {
-    console.log(menu.page)
-    let toggleButtonColor = '#484d52';
-    let toggleMenuBackgroundColor = 'white';
-    if (menu.page === 'etusivu'){
-      toggleButtonColor = 'white'
-      toggleMenuBackgroundColor = '#484d52'
-    }
-  
-    return (
-      <Fragment>
-    <header className='site-header'>
-      <NextLink href='/' passHref prefetch>
-        <a onClick={() => { 
-          console.log(menuOpen)
-          if (menuOpen){
-            const menuButton = document.getElementById("toggle")
-            menuButton.classList.toggle("on");
-          }
-          const menu = document.getElementById("menu")
-          menu.style.display = 'none'
-          menuOpen = false 
-        }}><div className='logo'>Etusivu</div></a>
-      </NextLink>
-      <div id="toggle" onClick={() => toggleClick()}>
-        <div className="one"></div>
-        <div className="two"></div>
-        <div className="three"></div>
-      </div>
-      <nav id="menu">
-        <ul>
-          <MenuLinks {...menu} />
-        </ul>
-      </nav>
-    </header>
-    <style jsx global>{ header }</style>
-    <style jsx>{`
+const linkClick = () => {
+  const menu = document.getElementById("menu")
+  const menuButton = document.getElementById("toggle")
+  if (menuOpen) {
+    menuButton.classList.toggle("on");
+  }
+  menu.style.display = 'none'
+  menuOpen = false
+}
 
-      
-      @media (min-width: 767px) {
+const Header = (menu) => {
+
+  const toggleButtonColor = menu.page === 'etusivu' ? 'white' : '#484d52';
+  const toggleMenuBackgroundColor = menu.page === 'etusivu' ? '#469464' : 'white';
+  const logoText = menu.page === 'etusivu' ? '' : 'Raana Lehtinen'
+  const uid = menu.page === 'etusivu' ? '' : menu.page
+
+  const languageChangingLinkText = menu.lang === 'fi' ? 'Eng' : 'Fi'
+  let pageUrl = menu.lang === 'fi' ? `/en/${uid}` : `/${uid}`
+  let homePageUrl = menu.lang === 'fi' ? '/' : '/en'
+
+  if (menu.page === 'etusivu') {
+    pageUrl = menu.lang === 'fi' ? `/en` : `/`
+    homePageUrl = menu.lang === 'fi' ? '/' : '/en'
+  }
+
+  return (
+    <Fragment>
+      <header className='site-header'>
+        <NextLink href={homePageUrl} passHref prefetch>
+          <a onClick={() => linkClick()}><div className='logo'>{logoText}</div></a>
+        </NextLink>
+        <div id="toggle" onClick={() => toggleButtonClick()}>
+          <div className="one"></div>
+          <div className="two"></div>
+          <div className="three"></div>
+        </div>
+        <nav id="menu">
+          <ul>
+            <MenuLinks {...menu} />
+            <li onClick={() => linkClick()}>
+              {/* <Link href={pageUrl} passHref prefetch><a>{language}</a></Link>  */}
+              {/* <a onClick={() => Router.push(pageUrl)}>{language}</a> */}
+              <a href={pageUrl}>{languageChangingLinkText}</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <style jsx global>{header}</style>
+      <style jsx>{`
+      @media (min-width: 768px) {
+        
         #toggle {
           display: none;
         }
 
+        /* !important keeps menu visible on desktop after clicking
+        otherwise linkClick() would set it display: block; */
         #menu {
           display: block !important;
         }
@@ -132,22 +143,19 @@ const Header = (menu) => {
         }
         
         #menu {
-          color: black;
-          
+          color: black;          
           background-color: ${toggleMenuBackgroundColor};
-          padding: 10px;
-          
+          padding: 10px;          
           line-height: 50px;
           text-align: center;
           margin: auto;
           display: none;
-        }
-
-        
+        }   
       }
-    `}</style> 
-  </Fragment>
-    )
+    `}</style>
+    </Fragment>
+
+  )
 }
 
 export default Header

@@ -1,74 +1,89 @@
 import React, { Fragment } from 'react'
-import { default as NextLink } from 'next/link'
-import { Link, RichText } from 'prismic-reactjs'
+import { RichText } from 'prismic-reactjs'
 import { linkResolver } from 'prismic-configuration'
+import Router from 'next/router'
 
-
-// https://codepen.io/alexdevero/pen/ZQqrRy tosta ehkä pop up
-
-
-
-
- const openModal = (item) => {
- 
-  const modal = document.getElementById('myModal');
-  const modalImg = document.getElementById("img01");
+const openModal = (item, lang) => {
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById("modalImage");
   const captionText = document.getElementById("caption");
   modal.style.display = "block";
-  modalImg.src = item.image.url;
+  modalImg.src = item.link.url;
   captionText.innerHTML = item.image_description[0].text;
+
+  const url = lang === 'fi' ? '/works' : '/en/works'
+  const state = window.history.state
+
+  //Push new state to history so that Router.beforePopState
+  //would work also after first time
+ 
+  window.history.pushState(state, '', url);
+
+  //Handles browser backbutton when pressed while modal open
+  //Redirects user to 'works' page
+
+  Router.beforePopState(({ url, as, options }) => {
+    const location = lang === 'fi' ? '/works' : '/en/works'
+    console.log(url)
+    console.log(as)
+    window.location.href = location
+    return false
+  })
+
+  modal.onclick = () => {
+    modal.style.display = "none";
+    modalImg.src = '';
+    captionText.innerHTML = ''
+    /* modalImg.style.maxHeight = "80%"
+    modalImg.style.maxWidth = "90%" */
+  }
+
+  /* const zoomInButton = document.getElementById('zoomin')
+  const zoomOutButton = document.getElementById('zoomout')
+
+  zoomInButton.onclick = () => {
+    modalImg.style.maxHeight = "150%"
+    modalImg.style.maxWidth = "150%"
+  }
+  
+  zoomOutButton.onclick = () => {
+    modalImg.style.maxHeight = "80%"
+    modalImg.style.maxWidth = "90%"
+  } */
+
+
+  // Handles backbutton if pressed and closes the modal
+  /* window.onpopstate = function (event) {
+    event.preventDefault()
+    modal.style.display = "none";
+
+    modalImg.src = '';
+    captionText.innerHTML = ''
+    modalImg.style.maxHeight = "80%"
+    modalImg.style.maxWidth = "90%"
+  } */
+
+
   // Get the <span> element that closes the modal
-  const span = document.getElementsByClassName("close")[0];
+  //const span = document.getElementsByClassName("close")[0];
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = () => { 
-      modal.style.display = "none";
-  }
+  /*  span.onclick = () => { 
+       modal.style.display = "none";
+       modalImg.src = '';
+       captionText.innerHTML = ''
+       modalImg.style.maxHeight = "80%"
+     modalImg.style.maxWidth = "90%"
+   } */
 
-  modal.onclick = () => { 
-      modal.style.display = "none";
-  }
+}
 
-} 
-
-const GalleryItem = ({ slice }) => (
+const GalleryItem = ({ slice, lang }) => (
   slice.items.map((item, index) => {
-    let internalLink = item.link.link_type == 'Document'
     return (
-     /*  <div onClick={() => openPopUp(item)} className='gallery-item' key={index}>
-      <img src={item.image.url} alt={item.image.alt} /> */
-         <div onClick={() => openModal(item)} className='gallery-item' key={index}>
-         <img src={item.image.url} alt={item.image.alt} />
-         {RichText.render(item.image_description, linkResolver)}
-         {/* <NextLink
-              as={internalLink
-                ? linkResolver(item.link)
-                : ''}
-              href={internalLink
-                ? `/page?uid=${item.link.uid}`
-                : Link.url(item.link, linkResolver)}
-              passHref
-            >
-              <a><img src={item.image.url} alt={item.image.alt} />
-              {RichText.render(item.image_description, linkResolver)}</a>
-            </NextLink>  */}
-        
-        
-        {/* {RichText.asText(item.link_label) !== '' ? (
-          <p className='gallery-link'>
-            <NextLink
-              as={internalLink
-                ? linkResolver(item.link)
-                : ''}
-              href={internalLink
-                ? `/page?uid=${item.link.uid}`
-                : Link.url(item.link, linkResolver)}
-              passHref
-            >
-              <a>{RichText.asText(item.link_label)}</a>
-            </NextLink>
-          </p>
-        ) : '' } */}
+      <div onClick={() => openModal(item, lang)} className='gallery-item noSelect' key={index}>
+        <img src={item.image.url} alt={item.image.alt} />
+        {RichText.render(item.image_description, linkResolver)}
       </div>
     )
   })
@@ -84,7 +99,6 @@ const ImageGallery = (props) => (
     </section>
     <style jsx global>{`
       .image-gallery h2{
-        
         margin-bottom: 2em;
       }
       .gallery {
@@ -112,6 +126,17 @@ const ImageGallery = (props) => (
       }
       .gallery img {
         margin-bottom: 1rem;
+      }
+
+      /* Removes blue selection area of element when clicked */
+      .noSelect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
       }
       @media (max-width: 767px) {
         .gallery-item {

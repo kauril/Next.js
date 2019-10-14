@@ -53,15 +53,6 @@
       "type" : "Slices",
       "fieldset" : "Slice zone",
       "config" : {
-        "labels" : {
-          "text_section" : [ {
-            "name" : "1col",
-            "display" : "1 Column"
-          }, {
-            "name" : "2col",
-            "display" : "2 Columns"
-          } ]
-        },
         "choices" : {
           "text_section" : {
             "type" : "Slice",
@@ -107,7 +98,7 @@
                 "config" : {
                   "constraint" : {
                     "width" : 980,
-                    "height" : 300
+                    "height" : 600
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
@@ -218,7 +209,81 @@
               }
             },
             "repeat" : { }
+          },
+          "carousel" : {
+            "type" : "Slice",
+            "fieldset" : "Carousel",
+            "description" : "Image Carousel",
+            "icon" : "photo_library",
+            "repeat" : {
+              "image_description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Image Description",
+                  "placeholder" : "Image description..."
+                }
+              },
+              "gallery_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : null,
+                    "height" : 500
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Gallery Image"
+                }
+              }
+            }
           }
+        }
+      }
+    }
+  },
+  "SEO" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title",
+        "placeholder" : "Meta title..."
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description",
+        "placeholder" : "Meta Description..."
+      }
+    }
+  },
+  "Socialmedia Card" : {
+    "socialmedia_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title"
+      }
+    },
+    "socialmedia_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Description"
+      }
+    },
+    "socialmedia_image" : {
+      "type" : "Image",
+      "config" : {
+        "placeholder" : "Image",
+        "constraint" : {
+          "width" : 1200,
+          "height" : 1200
         }
       }
     }

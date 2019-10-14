@@ -4,6 +4,9 @@
   "builds": [{ "src": "next.config.js", "use": "@now/next" }],
   "routes": [
     { "src": "/preview", "dest": "/preview" },
+    { "src": "/en", "dest": "/en?lang=en-fi" },
+    { "src": "/en/(?<uid>[^/]+)$", "dest": "/en/page?uid=$uid&lang=en-fi" }, 
     { "src": "/(?<uid>[^/]+)$", "dest": "/page?uid=$uid" }
   ]
 }
+
