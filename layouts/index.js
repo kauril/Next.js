@@ -9,9 +9,7 @@ const DefaultLayout = ({ children }) => {
                 <div className="close">&times;</div>
                 <img id="modalImage" />
                 <div id="caption"></div>
-                {/* <button id="zoomin" type="button" > Zoom In</button>
-                <button id="zoomout" type="button" > Zoom Out</button> */}
-            </div>
+                 </div>
             <main>{children}</main>
             <Footer />
             <style jsx>{`

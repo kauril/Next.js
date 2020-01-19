@@ -6,18 +6,28 @@ import Head from 'next/head'
 import defaultSEO from '../defaultSEO';
 import DefaultLayout from 'layouts'
 
+
 export default class extends React.Component {
   // Fetch relevant data from Prismic before rendering
   static async getInitialProps(context) {
-    const req = context.req
-    const lang = 'fi'
-    const home = await this.getHomePage(req, lang)
+    const req = context.req;
+
+    /*   if(!process.browser)
+        console.log("SERVER SIDE: ", context);
+      else
+        console.log("CLIENT SIDE: ", context.lang);
+   */
+
+    let lang = context.lang
+    
+
+
+    const home = await this.getHomePage(req, lang.locale)
     // Extra call to render the edit button, in case we've been routed client-side
     if (process.browser) window.prismic.setupEditButton()
     return {
       doc: home.document,
-      menu: home.menu,
-      lang: lang
+      menu: home.menu
     }
   }
 
@@ -26,9 +36,8 @@ export default class extends React.Component {
       // Initializes the API, including the preview information and access token if there's any
       const API = await Prismic.getApi(apiEndpoint, { req, accessToken })
       // Queries both the homepage and navigation menu documents
-      const document = await API.getSingle('homepage')
-
-      const menu = await API.getSingle('menu')
+      const document = await API.getSingle('homepage', { lang: lang })
+      const menu = await API.getSingle('menu', { lang: lang })
       return { document, menu }
     } catch (error) {
       console.error(error)
@@ -37,8 +46,6 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log('indexixsss')
-    console.log(this.props.lang)
     let title = this.props.doc.data.meta_title ?
       this.props.doc.data.meta_title :
       defaultSEO.title
@@ -64,9 +71,10 @@ export default class extends React.Component {
           <meta property="og:image" content={this.props.doc.data.socialmedia_image.url ?
             this.props.doc.data.socialmedia_image.url :
             defaultSEO.openGraph.image} />
+            
         </Head>
         <div className='homepage' data-wio-id={this.props.doc.id}>
-          <Header menu={this.props.menu} page={'etusivu'} lang={this.props.lang} />
+          <Header menu={this.props.menu} page={'etusivu'} lang={this.props.doc.lang} />
           <HomeBanner banner={this.props.doc.data.homepage_banner[0]} />
           <SliceZone sliceZone={this.props.doc.data.page_content} />
         </div>

@@ -22,9 +22,43 @@ app
         })
     })
 
+    server.get('/', (req, res) => {
+      const nextJsPage = '/index'
+      const queryParams = { lang: 'fi' }
+      app.render(req, res, nextJsPage, queryParams)
+    })
+    
+    server.get('/en', (req, res) => {
+      const nextJsPage = '/index'
+      const queryParams = { lang: 'en' }
+      app.render(req, res, nextJsPage, queryParams)
+    })
+
+
+    server.get('/en/:uid', (req, res) => {
+      const nextJsPage = '/page'
+      const queryParams = { uid: req.params.uid, lang: 'en' }
+      app.render(req, res, nextJsPage, queryParams)
+    })
+
+
+    server.get('/en/:uid&:scrollPos', (req, res) => {
+      const nextJsPage = '/page'
+      const queryParams = { uid: req.params.uid, scrollPos: req.params.scrollPos, lang: 'fi' }
+      app.render(req, res, nextJsPage, queryParams)
+    })
+
+    
+      server.get('/:uid/:scrollPos', (req, res) => {    
+        const nextJsPage = '/page'
+        const queryParams = { uid: req.params.uid, scrollPos: req.params.scrollPos, lang: 'fi' }
+        app.render(req, res, nextJsPage, queryParams)
+      })
+
+    
     server.get('/:uid', (req, res) => {
       const nextJsPage = '/page'
-      const queryParams = { uid: req.params.uid }
+      const queryParams = { uid: req.params.uid, lang: 'fi' }
       app.render(req, res, nextJsPage, queryParams)
     })
 

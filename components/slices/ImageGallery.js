@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { linkResolver } from 'prismic-configuration'
 import Router from 'next/router'
 
-const openModal = (item, lang) => {
+const openModal = (item, lang, uid) => {
   const modal = document.getElementById('imgModal');
   const modalImg = document.getElementById("modalImage");
   const captionText = document.getElementById("caption");
@@ -11,22 +11,33 @@ const openModal = (item, lang) => {
   modalImg.src = item.link.url;
   captionText.innerHTML = item.image_description[0].text;
 
-  const url = lang === 'fi' ? '/works' : '/en/works'
-  const state = window.history.state
-
+  //const state = window.history.state
+  //window.history.pushState(state, '', url);
   //Push new state to history so that Router.beforePopState
   //would work also after first time
- 
-  window.history.pushState(state, '', url);
+
+
+  //window.scrollTo(0, 0); 
+  //Router.push(`/works`,`/works/${item.image.alt}`, {shallow:true});
+
+  
 
   //Handles browser backbutton when pressed while modal open
   //Redirects user to 'works' page
 
   Router.beforePopState(({ url, as, options }) => {
-    const location = lang === 'fi' ? '/works' : '/en/works'
-    console.log(url)
-    console.log(as)
-    window.location.href = location
+    //const location = lang === 'fi' ? `/works/${window.scrollY}` : '/en/works'
+    modal.style.display = "none";
+    modalImg.src = '';
+    captionText.innerHTML = ''
+    window.location.href = lang === 'fi' ? `/${uid}&scrollPos=${window.scrollY}` : `/en/${uid}&scrollPos=${window.scrollY}`
+    
+    
+    //Router.push(`/works/${window.scrollY}`,`/works/${window.scrollY}`, {shallow:true});
+    /* Router.push({
+      pathname: '/works',
+      query: { scrollPos: window.scrollY },
+    }); */
     return false
   })
 
@@ -78,10 +89,10 @@ const openModal = (item, lang) => {
 
 }
 
-const GalleryItem = ({ slice, lang }) => (
+const GalleryItem = ({ slice, lang, uid }) => (
   slice.items.map((item, index) => {
     return (
-      <div onClick={() => openModal(item, lang)} className='gallery-item noSelect' key={index}>
+      <div onClick={() => openModal(item, lang, uid)} className='gallery-item noSelect' key={index}>
         <img src={item.image.url} alt={item.image.alt} />
         {RichText.render(item.image_description, linkResolver)}
       </div>

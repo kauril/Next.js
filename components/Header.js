@@ -7,7 +7,10 @@ import Link from 'next/link'
 import Router from 'next/router'
 
 const MenuLinks = ({ menu }) => {
+  
+  
   return (
+    
     menu.data.menu_links.map((menuLink) => {
       if (menuLink.link.id) {
         return (
@@ -32,6 +35,7 @@ const MenuLinks = ({ menu }) => {
     })
   )
 }
+
 
 let menuOpen = false;
 
@@ -67,17 +71,18 @@ const Header = (menu) => {
 
   const languageChangingLinkText = menu.lang === 'fi' ? 'Eng' : 'Fi'
   let pageUrl = menu.lang === 'fi' ? `/en/${uid}` : `/${uid}`
-  let homePageUrl = menu.lang === 'fi' ? '/' : '/en'
+  const homePageUrlAs = menu.lang === 'fi' ? '/' : '/en'
+  const homePageUrlHref = menu.lang === 'fi' ? '/?lang=fi' : '/?lang=en'
 
   if (menu.page === 'etusivu') {
     pageUrl = menu.lang === 'fi' ? `/en` : `/`
-    homePageUrl = menu.lang === 'fi' ? '/' : '/en'
   }
-
+  
+  
   return (
     <Fragment>
       <header className='site-header'>
-        <NextLink href={homePageUrl} passHref prefetch>
+        <NextLink as={homePageUrlAs} href={homePageUrlHref} passHref prefetch>
           <a onClick={() => linkClick()}><div className='logo'>{logoText}</div></a>
         </NextLink>
         <div id="toggle" onClick={() => toggleButtonClick()}>

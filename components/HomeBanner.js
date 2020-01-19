@@ -13,9 +13,7 @@ const HomeBanner = ({ banner }) => {
         className='homepage-banner'
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' +
-            banner.image.url +
-            ')'
+            'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6))'
         }}
       >
         <div className='banner-content container'>

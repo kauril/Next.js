@@ -41,6 +41,13 @@ export const header = css.global`
     padding-right: 20px;
   }
 }
+
+@media (max-width: 854px) {
+  .site-header nav li {
+    margin-left: 23px;
+  }
+}
+
 @media (max-width: 767px) {
   .site-header {
     height: auto;
@@ -155,7 +162,7 @@ export const globals = css.global`
 body {
   padding: 20px;
   color: #72767b;
-  font-family: 'Courier', sans-serif;
+  font-family: 'Courier Prime', monospace;
   font-size: 16px;
   font-weight: 400;
   letter-spacing : 0.4;
@@ -174,10 +181,10 @@ p a {
   text-decoration: underline;
 }
 h2, h3, h4, h5, h6 {
-  font-family: 'Courier', sans-serif;;
+  font-family: 'Courier Prime', monospace;
 }
 h1 {
-  font-family: Courier, Serif; 
+  font-family: 'Courier Prime', monospace;
   font-size: 42px; 
   font-weight: normal; 
   color: #484D52; 

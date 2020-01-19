@@ -22,7 +22,7 @@ const SliceZone = ({ sliceZone, uid, lang }) => {
           case ('full_width_image'):
             return <FullWidthImage slice={slice} key={'slice-' + index} />
           case ('image_gallery'):
-            return <ImageGallery slice={slice} key={'slice-' + index} lang={lang}/>
+            return <ImageGallery slice={slice} key={'slice-' + index} lang={lang} uid={uid}/>
           case ('carousel'):
             return <Carousel slice={slice} key={'slice-' + index} />
           case ('image_highlight'):

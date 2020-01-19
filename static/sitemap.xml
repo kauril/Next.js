@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+   <url>
+
+      <loc>https://raanalehtinen.com/</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/en</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/info</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/info"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/info"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/info"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/en/info</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/info"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/info"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/info"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/works</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/works"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/works"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/works"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/en/works</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/works"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/works"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/works"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/cv</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/cv"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/cv"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/cv"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/en/cv</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/cv"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/cv"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/cv"/>
+   </url>
+
+   <url>
+
+      <loc>https://raanalehtinen.com/contact</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/contact"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/contact"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/contact"/>
+   </url>
+   
+   <url>
+
+      <loc>https://raanalehtinen.com/en/contact</loc>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="https://raanalehtinen.com/en/contact"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="fi"
+               href="https://raanalehtinen.com/contact"/>
+      <xhtml:link 
+               rel="alternate"
+               hreflang="x-default"
+               href="https://raanalehtinen.com/contact"/>
+   </url>
+
+</urlset>

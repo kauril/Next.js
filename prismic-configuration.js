@@ -12,28 +12,30 @@ module.exports = {
   // Manages links to internal Prismic documents
   // Modify as your project grows to handle any new routes you've made
   linkResolver: function (doc) {
+
     if (doc.type === 'page') {
-      if(doc.lang === 'en-fi'){
+      if(doc.lang === 'en-us'){
         return `/en/${doc.uid}`
       }
       return `/${doc.uid}`
     }
-    if(doc.lang === 'en-fi'){
-      return '/en/'
+    if(doc.lang === 'en-us'){
+      return '/en'
     }
     return '/'
   },
 
   // Additional helper function for Next/Link component
   hrefResolver: function (doc) {
+
     if (doc.type === 'page') {
-      if(doc.lang === 'en-fi'){
-        return `/en/page?uid=${doc.uid}`
+      if(doc.lang === 'en-us'){
+        return `/page?uid=${doc.uid}&lang=en`
       }
-      return `/page?uid=${doc.uid}`
+      return `/page?uid=${doc.uid}&lang=fi`
     }
-    if(doc.lang === 'en-fi'){
-      return '/en/'
+    if(doc.lang === 'en-us'){
+      return '/en'
     }
     return '/'
   }
