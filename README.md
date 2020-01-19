@@ -1,2 +1,2 @@
-# Website made with Next.js
+# Website made with Next.js and Pricmic (CMS)
 
