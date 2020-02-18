@@ -12,6 +12,7 @@ module.exports = {
   // Manages links to internal Prismic documents
   // Modify as your project grows to handle any new routes you've made
   linkResolver: function (doc) {
+    
 
     if (doc.type === 'page') {
       if(doc.lang === 'en-us'){

@@ -26,17 +26,6 @@
               "label" : "Button Link"
             }
           },
-          "image" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : {
-                "width" : 2000,
-                "height" : null
-              },
-              "thumbnails" : [ ],
-              "label" : "Banner Image"
-            }
-          },
           "button_label" : {
             "type" : "StructuredText",
             "config" : {
@@ -60,11 +49,18 @@
             "description" : "Simple text section with either one or two columns",
             "icon" : "text_fields",
             "non-repeat" : {
+              "color" : {
+                "type" : "Color",
+                "config" : {
+                  "label" : "color"
+                }
+              },
               "rich_text" : {
                 "type" : "StructuredText",
                 "config" : {
                   "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
                   "label" : "Rich Text",
+                  "labels" : [ "left-align", "center-align" ],
                   "placeholder" : "Text..."
                 }
               }
@@ -97,11 +93,17 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 980,
-                    "height" : 600
+                    "width" : 980
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
+                }
+              },
+              "image_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Image link",
+                  "placeholder" : "link"
                 }
               }
             },
@@ -150,8 +152,7 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 727,
-                    "height" : 402
+                    "width" : 471
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
@@ -224,7 +225,7 @@
                   "placeholder" : "Image description..."
                 }
               },
-              "gallery_image" : {
+              "carousel_image" : {
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
@@ -232,7 +233,16 @@
                     "height" : 500
                   },
                   "thumbnails" : [ ],
-                  "label" : "Gallery Image"
+                  "label" : "Carousel Image"
+                }
+              }
+            },
+            "non-repeat" : {
+              "carousel_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Carousel link",
+                  "placeholder" : "link"
                 }
               }
             }

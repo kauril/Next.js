@@ -5,15 +5,43 @@ import htmlSerializer from 'utils/htmlSerializer'
 
 const TextSection = ({ slice }) => {
   const sectionClass = slice.slice_label ? 'text-section-' + slice.slice_label : 'text-section-1col'
+  let textalign = 'inherit'
+  let color = 'inherit';
+ 
+
+  if (slice.primary.rich_text[0].label === 'center-align') {
+    textalign = 'center'
+  }
+
+  if (slice.primary.color) {
+    color = slice.primary.color
+  }
+
   return (
     <Fragment>
-      <section className={`content-section ${sectionClass}`}>
+      <section className={`content-section ${sectionClass} ${'textalign' + textalign} ${'color' + color.replace('#', '')} `}>
         {RichText.render(slice.primary.rich_text, linkResolver, htmlSerializer)}
       </section>
       <style jsx global>{`
 
           .text-section-1col h1 {
             margin-top: 1em;
+          }
+
+          .${'textalign' + textalign} {
+            text-align: ${textalign};
+          }
+
+          .${'color' + color.replace('#', '')}{
+            color: ${color} 
+          }
+
+          .${'textalign' + textalign} h1 {
+            text-align: ${textalign};
+          }
+
+          .${'color' + color.replace('#', '')} h1 {
+            color: ${color} 
           }
 
           .text-section-2col {

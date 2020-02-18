@@ -11,30 +11,19 @@
             "description" : "Simple text section with either one or two columns",
             "icon" : "text_fields",
             "non-repeat" : {
-              "rich_text" : {
-                "type" : "StructuredText",
+              "color" : {
+                "type" : "Color",
                 "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "allowTargetBlank" : true,
-                  "label" : "Rich Text",
-                  "placeholder" : "Text..."
+                  "label" : "color"
                 }
-              }
-            },
-            "repeat" : { }
-          },
-          "text_section_english" : {
-            "type" : "Slice",
-            "fieldset" : "Text Section English",
-            "description" : "English Simple text section with either one or two columns",
-            "icon" : "text_fields",
-            "non-repeat" : {
+              },
               "rich_text" : {
                 "type" : "StructuredText",
                 "config" : {
                   "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
                   "allowTargetBlank" : true,
                   "label" : "Rich Text",
+                  "labels" : [ "left-align", "center-align" ],
                   "placeholder" : "Text..."
                 }
               }

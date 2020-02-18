@@ -46,6 +46,7 @@ export default class extends React.Component {
   }
 
   render() {
+
     let title = this.props.doc.data.meta_title ?
       this.props.doc.data.meta_title :
       defaultSEO.title

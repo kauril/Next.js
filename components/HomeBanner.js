@@ -92,7 +92,7 @@ const HomeBanner = ({ banner }) => {
         @media (max-width: 767px) {
 
           .homepage-banner {
-            margin: 0 0 0;
+            margin: 0 0 1em;
             padding: 5em 0 2em;
           }
 
