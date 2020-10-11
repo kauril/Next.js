@@ -1,4 +1,5 @@
 export { default as TextSection } from './TextSection'
+export { default as Carousel } from './Carousel'
 export { default as Quote } from './Quote'
 export { default as FullWidthImage } from './FullWidthImage'
 export { default as ImageGallery } from './ImageGallery'

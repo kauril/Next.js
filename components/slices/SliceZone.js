@@ -4,10 +4,11 @@ import {
   Quote,
   FullWidthImage,
   ImageGallery,
-  ImageHighlight
+  ImageHighlight,
+  Carousel
 } from './'
 
-import Carousel from './Carousel';
+
 
 
 const SliceZone = ({ sliceZone, uid, lang }) => {

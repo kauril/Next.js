@@ -10,6 +10,7 @@ import DefaultLayout from 'layouts'
 export default class extends React.Component {
   // Fetch relevant data from Prismic before rendering
   static async getInitialProps(context) {
+
     const req = context.req;
 
     /*   if(!process.browser)
@@ -47,6 +48,7 @@ export default class extends React.Component {
 
   render() {
 
+    console.log('pageProps indexis', this.props)
     let title = this.props.doc.data.meta_title ?
       this.props.doc.data.meta_title :
       defaultSEO.title

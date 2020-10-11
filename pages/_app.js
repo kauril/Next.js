@@ -12,10 +12,17 @@ class MyApp extends App {
 
     static async getInitialProps({ Component, router, ctx }) {
 
+        
+
         let pageProps = {};
+
+        console.log('ctx.query', ctx.query)
+       
         //GRAB CURRENT LANGUAGE FROM req.query ON THE SERVER, HTML.LANG ON CLIENT
         let lang = ((ctx.req) ? ctx.query.lang : document.querySelector("html").lang);
         lang = getLanguage(ctx.query.lang)
+
+        //IF language is not found choose default language (originally defined in next.config.js)
         if (!lang) {
             lang = getDefaultLanguage()
         }

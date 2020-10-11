@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import { apiEndpoint } from 'prismic-configuration'
-import { reset, globals, medias } from 'styles'
+import { reset, globals, medias, modal } from 'styles'
 
 export default () => {
   return (
@@ -38,6 +38,7 @@ export default () => {
       <style jsx global>{reset}</style>
       <style jsx global>{globals}</style>
       <style jsx global>{medias}</style>
+      <style jsx global>{modal}</style>
     </Fragment>
   )
 }
