@@ -48,7 +48,7 @@ export default class extends React.Component {
 
   render() {
 
-    console.log('pageProps indexis', this.props)
+    //console.log('pageProps indexis', this.props)
     let title = this.props.doc.data.meta_title ?
       this.props.doc.data.meta_title :
       defaultSEO.title
