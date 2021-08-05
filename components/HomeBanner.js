@@ -11,10 +11,10 @@ const HomeBanner = ({ banner }) => {
     <Fragment>
       <section
         className='homepage-banner'
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6))'
-        }}
+        // style={{
+        //   backgroundImage:
+        //     'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6))'
+        // }}
       >
         <div className='banner-content container'>
           <h2 className='banner-title'>{RichText.asText(banner.title)}</h2>
@@ -70,7 +70,7 @@ const HomeBanner = ({ banner }) => {
         }
 
         .banner-title {
-          color: #ffffff;
+          color: black;
           font-size: 70px;
           font-weight: 900;
           line-height: 70px;
@@ -79,7 +79,7 @@ const HomeBanner = ({ banner }) => {
         .banner-button {
           background: #ffffff;
           border-radius: 7px;
-          color: #484d52;
+          color: black;
           font-size: 14px;
           font-weight: 700;
           padding: 10px 40px;

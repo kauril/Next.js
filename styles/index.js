@@ -7,7 +7,7 @@ export const header = css.global`
 }
 .site-header,
 .site-header a {
-  color: #484d52;
+  color: black;
   font-weight: 700;
 }
 .site-header nav a:hover {
@@ -15,7 +15,7 @@ export const header = css.global`
 }
 .homepage .site-header,
 .homepage .site-header a {
-  color: #ffffff;
+  color: black;
 }
 .homepage .site-header nav a:hover {
   color: #c8c9cb;
@@ -216,7 +216,7 @@ body {
   font-weight: 400;
   letter-spacing : 0.4;
   line-height: 28px;
-  background-color: #5ae4a7;
+  background-color: white;
 }
 a {
   color: #72767B;

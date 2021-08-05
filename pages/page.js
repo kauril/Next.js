@@ -50,13 +50,14 @@ export default class Page extends React.Component {
  
 
   componentDidMount() {
+
   
     window.scrollTo(0, this.props.scrollPos); 
     // Cleans the url when in works page.
     // Scrollrestoration is only on works-page, when modal is opened and 
     // backbutton is pressed
 
-    if (this.props.uid === 'works' || this.props.uid === 'portraits') {
+    if (this.props.uid === 'works' || this.props.uid === 'portraits' || this.props.uid === 'teoksia-paperille') {
       const url = this.props.lang.slug === 'fi' ? `/${this.props.uid}` : `/en/${this.props.uid}`
       const state = window.history.state
       window.history.pushState(state, '', url);

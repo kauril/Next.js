@@ -16,7 +16,7 @@ class MyApp extends App {
 
         let pageProps = {};
 
-        console.log('ctx.query', ctx.query)
+        //console.log('ctx.query', ctx.query)
        
         //GRAB CURRENT LANGUAGE FROM req.query ON THE SERVER, HTML.LANG ON CLIENT
         let lang = ((ctx.req) ? ctx.query.lang : document.querySelector("html").lang);

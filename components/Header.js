@@ -64,8 +64,8 @@ const linkClick = () => {
 
 const Header = (menu) => {
 
-  const toggleButtonColor = menu.page === 'etusivu' ? 'white' : '#484d52';
-  const toggleMenuBackgroundColor = menu.page === 'etusivu' ? '#469464' : 'white';
+  const toggleButtonColor = menu.page === 'etusivu' ? 'black' : 'black';
+  const toggleMenuBackgroundColor = menu.page === 'etusivu' ? 'white' : 'white';
   const logoText = menu.page === 'etusivu' ? '' : 'Raana Lehtinen'
   const uid = menu.page === 'etusivu' ? '' : menu.page
 

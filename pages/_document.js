@@ -15,8 +15,8 @@ class MyDocument extends Document {
 
         const isProduction = process.env.NODE_ENV === 'production';
 
-        console.log('document ctx.lang', ctx.lang)
-        console.log('document ctx.pageprops', ctx.pageProps)
+        //console.log('document ctx.lang', ctx.lang)
+        //console.log('document ctx.pageprops', ctx.pageProps)
 
         let lang = (ctx.lang.locale) ? ctx.lang.locale : "fi";
         initialProps.lang = lang;
