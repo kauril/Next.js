@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@vercel/build-utils": "^2.5.4",
-    "next": "^8.1.0",
+    "next": "^11.1.0",
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^0.3.2",
     "react": "^16.8.6",
