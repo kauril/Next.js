@@ -5,7 +5,7 @@
   "description": "Website built with Next.js using Prismic headless CMS",
   "author": "",
   "devDependencies": {
-    "express": "^4.17.0",
+    "express": "^4.18.2",
     "nodemon": "^1.19.0",
     "now": "^15.3.0"
   },
